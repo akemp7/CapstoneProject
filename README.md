@@ -1,3 +1,3 @@
 ## Component Diagram ##
 
-<img src="frontend/src/Assets/Capstone.png"/>
+<img src="ReactFrontEnd/src/Assets/Capstone.png"/>
