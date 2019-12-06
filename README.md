@@ -1,3 +1,3 @@
 ## Component Diagram ##
 
-<img src="src/Assets/Capstone.png"/>
+<img src="frontend/src/Assets/Capstone.png"/>
