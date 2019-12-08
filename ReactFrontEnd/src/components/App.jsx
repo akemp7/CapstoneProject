@@ -12,6 +12,7 @@ function App(){
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/contribute" component={Contribute} />
+                <Route path="/newsearch" component={NewSearchForm} />
             </Switch>
         </div>
     );
