@@ -7,8 +7,11 @@ function Navbar(){
             <div>
                 <nav>
                     <Link to="/">Home</Link>
+                    <Link to="/contribute">Contribute</Link>
                 </nav>
             </div>
         </div>
     )
 }
+
+export default Navbar;
