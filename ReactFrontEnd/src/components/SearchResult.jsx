@@ -6,7 +6,7 @@ function SearchResult(){
     return(
         <div>
             <Navbar />
-            <h2>This is where the search results would go...</h2>
+            <h2>This is where the search results would go based on queried API...</h2>
         </div>
     );
 }
