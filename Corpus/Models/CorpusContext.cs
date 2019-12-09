@@ -10,15 +10,15 @@ namespace Corpus.Models
 
         }
 
-        public DbSet<Corpus> Corpus { get; set; }
+        public DbSet<Entry> Corpus { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Corpus>()
+            builder.Entity<Entry>()
                 .HasData(
 
-                   new Corpus {CorpusId = 1, Summary = "This will be the summary of the video they see. It will be a somewhat lengthy summary, but hopefully not too verbose."},
+                   new Entry {CorpusId = 1, Summary = "This will be the summary of the video they see. It will be a somewhat lengthy summary, but hopefully not too verbose."},
 
-                    new Corpus { CorpusId = 2, Summary = "This is another summary for testing purposes..." }
+                    new Entry { CorpusId = 2, Summary = "This is another summary for testing purposes..." }
             );
         }
     }
