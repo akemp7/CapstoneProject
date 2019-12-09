@@ -20,23 +20,23 @@ namespace Corpus.Controllers
 
         // GET api/CorpusApi
         [HttpGet]
-        public ActionResult<IEnumerable<Entry>> Get(int corpusId, string summary)
+        public ActionResult<IEnumerable<Summary>> Get(int corpusId, string summary)
         {
             var query = _db.Corpus.AsQueryable();
             if(corpusId != 0)
             {
-                query = query.Where(c => c.CorpusId == corpusId);
+                query = query.Where(c => c.SummaryId == corpusId);
             }
             if(summary != null)
             {
-                query = query.Where(s => s.Summary == summary);
+                query = query.Where(s => s.UserSumm == summary);
             }
             return query.ToList();
         }
 
         //POST api/CorpusApi
         [HttpPost]
-        public void Post([FromBody] Entry entry)
+        public void Post([FromBody] Summary entry)
         {
             _db.Corpus.Add(entry);
             _db.SaveChanges();
@@ -44,9 +44,9 @@ namespace Corpus.Controllers
 
         //PUT api/CorpusApi?corpusId
         [HttpPut("{id")]
-        public void Put(int id, [FromBody] Entry entry)
+        public void Put(int id, [FromBody] Summary entry)
         {
-            entry.CorpusId = id;
+            entry.SummaryId = id;
             _db.Entry(entry).State = EntityState.Modified;
             _db.SaveChanges();
         }
@@ -55,7 +55,7 @@ namespace Corpus.Controllers
         [HttpDelete ("{id")]
         public void Delete(int id)
         {
-            var entryToDelete = _db.Corpus.FirstOrDefault(entry => entry.CorpusId == id);
+            var entryToDelete = _db.Corpus.FirstOrDefault(entry => entry.SummaryId == id);
             _db.Corpus.Remove(entryToDelete);
             _db.SaveChanges();
         }

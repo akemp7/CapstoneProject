@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 namespace Corpus.Models
 {
-    public class Entry
+    public class Summary
     {
-        public int CorpusId { get; set; }
-        public string Summary {get; set; }
+        public int SummaryId { get; set; }
+        public string UserSumm {get; set; }
     }
 }
