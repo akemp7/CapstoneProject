@@ -1,0 +1,2 @@
+export const CONTRIBUTE_ENTRY = 'CONTRIBUTE_ENTRY';
+export const SEARCH_ENTRY = 'SEARCH_ENTRY';

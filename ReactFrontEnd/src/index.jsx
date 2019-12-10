@@ -1,25 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import { AppContainer } from "react-hot-loader";
+import { createStore } from 'redux';
+import rootReducer from './reducers/';
 import { HashRouter } from "react-router-dom";
-const render = (Component) => {
+
+const store = createStore(rootReducer)
 
     ReactDOM.render(
-        <AppContainer>
+        <Provider store={store}>
             <HashRouter>
-                <Component />
+                <App />
             </HashRouter>
-        </AppContainer>,
+            </Provider>,
         document.getElementById("react-app-root")
     );
-};
-
-render(App);
-
-
-if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        render(App);
-    });
-}
