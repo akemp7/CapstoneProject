@@ -23,7 +23,8 @@ function NewContributeForm(props){
             <form onSubmit= {handleNewSubmission}>
                 <textarea
                 id='summary'
-                placeholder='Summarize what happened in the video' />
+                placeholder='Summarize what happened in the video' 
+                ref={(input) => {_summary = input; }} />
                 <button type="submit" className="btn-btn">Submit!</button>
             </form>
         </div>
