@@ -1,22 +1,25 @@
-//This will show the youtube video and have an area to input summary 
 import React from 'react';
-import YoutubeEmbedVideo from 'youtube-embed-video';
-import Navbar from './Navbar';
+import PropTypes from 'prop-types';
 
-function Contribute(){
-    return(
-        <div>
-            <Navbar />
-            <YoutubeEmbedVideo videoId="AkLnj5pJtDI" suggestions={false} />
+class Contribute extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            summary: null,
+        };
+    }
 
-            <form>
-                <textarea
-                id='summary'
-                placeholder='Summarize what happened in the video' />
-                <button type="submit" className="btn-btn">Submit!</button>
-            </form>
-        </div>
-    );
+    render() {
+        return (
+            <div>
+                <p>Summary: {this.props.summary}</p>
+            </div>
+        );
+    }
 }
+
+Contribute.propTypes = {
+    summary: PropTypes.string,
+};
 
 export default Contribute;
