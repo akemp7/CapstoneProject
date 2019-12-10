@@ -37,3 +37,4 @@ Copyright (c) 2019 **_Anita Kemp_**
 ## Component Diagram ##
 
 <img src="ReactFrontEnd/src/Assets/Capstone.png"/>
+There should also be a component that shows the list of contributions to the corpus (summaries only, no identifying detail)
