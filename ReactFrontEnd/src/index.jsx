@@ -10,8 +10,18 @@ const store = createStore(rootReducer)
     ReactDOM.render(
         <Provider store={store}>
             <HashRouter>
-                <App />
+                <Component />
             </HashRouter>
             </Provider>,
         document.getElementById("react-app-root")
     );
+
+    render(App);
+
+/*eslint-disable */
+if (module.hot) {
+    module.hot.accept('./components/App', () => {
+      render(App);
+    });
+  }
+  /*eslint-enable */
