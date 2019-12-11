@@ -3,14 +3,16 @@ import Home from './Home';
 import ContributeControl from './ContributeControl';
 import NewContributeForm from './NewContributeForm';
 import { Switch, Route } from 'react-router-dom';
+import ApiHelper from './ApiHelper';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             masterList: [],
-            term: '',
+            entries: null
         };
+        this.apiHelper = new ApiHelper();
         this.handleAddingNewSummary = this.handleAddingNewSummary.bind(this);
     }
 

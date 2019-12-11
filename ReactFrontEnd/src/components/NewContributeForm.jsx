@@ -1,34 +1,46 @@
-//This will show the youtube video and have an area to input summary 
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
+// import { Redirect } from 'react-router-dom';
+// import { v4 } from 'uuid';
 import YoutubeEmbedVideo from 'youtube-embed-video';
 import Navbar from './Navbar';
 
-function NewContributeForm(props){
-    let _summary = null;
+class NewContributeForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false
+        };
 
-    function handleNewSubmission(event) {
-        event.preventDefault();
-        props.onNewContribution({summary: _summary.value, id: v4()})
-
-        _summary.value='';
+        this._summary = null;
+        this.handleNewSubmission = this.handleNewSubmission.bind(this);
     }
 
-    return(
-        <div>
-            <Navbar />
-            <YoutubeEmbedVideo videoId="AkLnj5pJtDI" suggestions={false} />
+    handleNewSubmission(event) {
+        event.preventDefault();
+        this.props.onNewContribution({summary: this._summary.value})
+        this._summary.value = '';
+        this.setState({ redirect: true});
+    }
 
-            <form onSubmit= {handleNewSubmission}>
-                <textarea
-                id='summary'
-                placeholder='Summarize what happened in the video' 
-                ref={(input) => {_summary = input; }} />
-                <button type="submit" className="btn-btn">Submit!</button>
-            </form>
-        </div>
-    );
+    render(){
+        return(
+            <div>
+                <Navbar />
+                <YoutubeEmbedVideo videoId="AkLnj5pJtDI" suggestions={false} />
+    
+                <form onSubmit= {handleNewSubmission}>
+                    <textarea
+                    id='summary'
+                    placeholder='Summarize what happened in the video' 
+                    ref={(input) => {this._summary = input; }} />
+                    <button type="submit" className="btn-btn">Submit!</button>
+                </form>
+            </div>
+        );
+    }
+
 }
 
 NewContributeForm.propTypes = {

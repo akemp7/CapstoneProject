@@ -42,5 +42,23 @@ namespace CorpusApi.Controllers
            _db.SaveChanges();
        }
 
+       //PUT api/CorpusApi?corpusId
+       [HttpPut("{id}")]
+       public void Put(int id, [FromBody] Corpus corpus)
+       {
+           corpus.CorpusId = id;
+           _db.Entry(corpus).State = EntityState.Modified;
+           _db.SaveChanges();
+       }
+
+       //DELETE api/CorpusApi?corpusId
+       [HttpDelete ("{id")]
+       public void Delete(int id )
+       {
+           var ToDelete = _db.CorpusApi.FirstOrDefault(entry => entry.CorpusId == id);
+           _db.CorpusApi.Remove(ToDelete);
+           _db.SaveChanges();
+       }
+
     }
 }
