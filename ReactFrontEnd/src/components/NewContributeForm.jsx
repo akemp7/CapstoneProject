@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Redirect } from 'react-router-dom';
-// import { v4 } from 'uuid';
+import { v4 } from 'uuid';
 import YoutubeEmbedVideo from 'youtube-embed-video';
 import Navbar from './Navbar';
 
@@ -19,7 +19,7 @@ class NewContributeForm extends React.Component {
 
     handleNewSubmission(event) {
         event.preventDefault();
-        this.props.onNewContribution({summary: this._summary.value})
+        this.props.onNewContribution({summary: this._summary.value, id: v4()})
         this._summary.value = '';
         this.setState({ redirect: true});
     }

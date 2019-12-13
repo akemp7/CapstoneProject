@@ -8,10 +8,13 @@ function ContributeControl (props) {
         <div>
             <Navbar />
             <div>
-                {props.contributeList.map((summ) =>
-                    <Contribute summary = {summ.summary}
-                    key={summ.id} />
-                    )}
+                {Object.keys(props.contributeList).map((summ) => {
+                    var newSumm = props.contributeList[summ];
+                    return(
+                            <Contribute summary = {newSumm.summary}
+                            key={newSumm.id} />
+                    );
+                    })}
             </div>
         </div>
     );
