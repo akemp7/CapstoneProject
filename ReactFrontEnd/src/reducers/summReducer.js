@@ -1,6 +1,6 @@
 import c from './../constants';
 
-export default (state = {}, action ) => {
+ const summReducer = (state = {}, action ) => {
     let newState;
     const {summary, id } = action;
 
@@ -16,3 +16,5 @@ export default (state = {}, action ) => {
 
     }
 };
+
+export default summReducer;

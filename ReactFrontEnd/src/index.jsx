@@ -1,20 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
-import { createStore } from 'redux';
-import summReducer from './reducers/summReducer';
-import { HashRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './reducers';
+import middlewareLogger from './middleware/middleware-logger';
+import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(summReducer)
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
-    ReactDOM.render(
-        <Provider store={store}>
-            <HashRouter>
-                <App />
-            </HashRouter>
-            </Provider>,
-        document.getElementById("react-app-root")
-    );
-
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('react-app-root')
+);
  
