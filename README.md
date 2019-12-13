@@ -38,3 +38,9 @@ Copyright (c) 2019 **_Anita Kemp_**
 
 <img src="ReactFrontEnd/src/Assets/Capstone.png"/>
 There should also be a component that shows the list of contributions to the corpus (summaries only, no identifying detail)
+
+## Refactor with redux to make the API Call Plan...
+* _GET Summary list of already seeded data, add to Corpus Control
+* _POST New summaries to API, update Corpus control with new list
+* _SEARCH API, for tokens (by words first, or by language background?)
+* _ADD Authentication 
